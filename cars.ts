@@ -1,30 +1,33 @@
 class Car {
-    private static cars: Car[] = [];
-    private model: string;
-    private price: number;
-    private brand: string;
+    static cars: Car[] = [];
 
-    constructor(model: string, price: number, brand: string) {
-        this.model = model;
-        this.price = price;
-        this.brand = brand;
+    constructor(private model: string, private price: number, private brand: string) {
         Car.cars.push(this);
     }
-    public getModel(): string {
+    get Model(): string {
         return this.model;
     }
-    public getPrice(): number {
+    get Price(): number {
         return this.price;
     }
-    public getBrand(): string {
+    get Brand(): string {
         return this.brand;
     }
-    public static getCarCount(): number {
+    static getCarCount(): number {
         return Car.cars.length;
     }
+    static displayAllCars(){
+        console.log("list of all cars:");
+        this.cars.forEach((car,index) =>{
+            console.log(`${index + 1}. ${car.Brand} ${car.model} -₹ ${car.Price}`);
+        });
+    }
 }
-const car1 = new Car("Model S", 79999, "Tesla");
-const car2 = new Car("Mustang", 55999, "Ford");
-const car3 = new Car("Civic", 24999, "Honda");
+
+
+let car1 = new Car("Model S", 79999, "Tesla");
+let car2 = new Car("Mustang", 55999, "Ford");
+let car3 = new Car("Civic", 24999, "Honda");
 
 console.log(`Total number of cars: ${Car.getCarCount()}`);
+Car.displayAllCars();
