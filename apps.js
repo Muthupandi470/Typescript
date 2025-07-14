@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var books_1 = require("./books");
+var library_1 = require("./library");
+var myLibrary = new library_1.Library();
+var book1 = new books_1.Book('The Hobbit', 'Tolkien', '9780547928227');
+var book2 = new books_1.Book('Clean Code', 'Robert', '9780132350884', false);
+myLibrary.addBook(book1);
+myLibrary.addBook(book2);
+myLibrary.listBooks();
+myLibrary.removeBook('9780547928227');
+myLibrary.listBooks();
